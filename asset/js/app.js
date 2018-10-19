@@ -26,3 +26,30 @@ const navSlide = ()=>{
 navSlide();
 /*********************************Colocar aca el desarrollo de su ejercicio***************************/
 
+var cont = 1;
+var bitacoras=[];
+var formulario = document.getElementById('bitacora');
+
+formulario.addEventListener('submit',(evet)=>{
+    evet.preventDefault();
+    let bitacora={
+        cant:cont,
+        fecha: formulario[1].value,
+        descripcion: formulario[2].value,
+        cantidad: formulario[3].value,
+    }
+    bitacoras.push(bitacora);
+    cont++;
+    mostrar();
+});
+
+const crearElemento = (bitacora,tbody) => {
+    let tr = document.createElement('tr');
+    object.values(bitacora).forEach(item => {
+        let td = document.createElement('td');
+        let content = document.createTextNode(item);
+        td.appendChild(content);
+        tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+}
